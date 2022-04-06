@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from "react";
+import "react-native-gesture-handler";
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 import HomeStack from "./routes/homeStack";
-import AboutStack from "./routes/aboutStack";
+
+const Stack = createNativeStackNavigator();
 
 //Custom Font
 const getFont = () => {
@@ -13,13 +17,9 @@ const getFont = () => {
 };
 
 export default function App() {
-  // const [fontsLoad, setFontsLoaded] = useState(false);
-
-  // if (fontsLoad) {
-  //   return ;
-  // } else {
-  //   <AppLoading startAsync={getFonts} onFinish={() => setFontsLoaded(true)} />;
-  // }
-
-  return <AboutStack />;
+  return (
+    <NavigationContainer>
+      <HomeStack />
+    </NavigationContainer>
+  );
 }
